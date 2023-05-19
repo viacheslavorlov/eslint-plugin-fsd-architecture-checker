@@ -42,7 +42,12 @@ Then configure the rules you want to use under the rules section.
 ## Rules
 
 <!-- begin auto-generated rules list -->
-TODO: Run eslint-doc-generator to generate the rules list.
+
+| Name                                                     | Description                                               |
+| :------------------------------------------------------- | :-------------------------------------------------------- |
+| [import-path-checker](docs/rules/import-path-checker.md) | checks if modules imported according to FSD rules         |
+| [public-api-import](docs/rules/public-api-import.md)     | imports from other modules should be only from public api |
+
 <!-- end auto-generated rules list -->
 
 
