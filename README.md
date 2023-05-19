@@ -1,6 +1,7 @@
 # eslint-plugin-fsd-import-checker
 
 checks import paths according to FSD architecture
+GitHub: https://github.com/viacheslavorlov/eslint-plugin-fsd-architecture-checker
 
 ## Installation
 
@@ -42,6 +43,8 @@ Then configure the rules you want to use under the rules section.
 ## Rules
 
 <!-- begin auto-generated rules list -->
+If you have trouble with opening this rules documentation visit 
+GitHub: https://github.com/viacheslavorlov/eslint-plugin-fsd-architecture-checker
 
 | Name                                                     | Description                                               |
 | :------------------------------------------------------- | :-------------------------------------------------------- |
