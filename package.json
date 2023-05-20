@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-fsd-architecture-checker",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "description": "checks import paths according to FSD architecture",
   "keywords": [
     "fsd",
@@ -19,6 +19,7 @@
     "update:eslint-docs": "eslint-doc-generator"
   },
   "dependencies": {
+    "micromatch": "^4.0.5",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {

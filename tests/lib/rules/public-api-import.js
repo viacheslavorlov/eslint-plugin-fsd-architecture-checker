@@ -22,12 +22,12 @@ const ruleTester = new RuleTester({
 ruleTester.run('public-api-import', rule, {
 	valid: [
 		{
-			filename: 'C:\\ulbi-advanced-frontend\\src\\features\\ArticleRating\\ui\\ArticleRating.tsx',
+			filename: 'C:\\advanced-frontend\\src\\features\\ArticleRating\\ui\\ArticleRating.tsx',
 			code: 'import { useGetArticleRating, useRateArticle } from \'entities/Article\'',
 			errors: [],
 		},
 		{
-			filename: 'C:\\ulbi-advanced-frontend\\src\\features\\ArticleRating\\ui\\ArticleRating.tsx',
+			filename: 'C:\\advanced-frontend\\src\\features\\ArticleRating\\ui\\ArticleRating.tsx',
 			code: 'import { useGetArticleRating, useRateArticle } from \'@/entities/Article\'',
 			errors: [],
 			options: [
@@ -35,22 +35,66 @@ ruleTester.run('public-api-import', rule, {
 					alias: '@'
 				}
 			]
+		},
+		{
+			filename: 'C:\\advanced-frontend\\src\\features\\ArticleRating\\service\\serviceFile.test.ts',
+			code: 'import { useGetArticleRating, useRateArticle } from \'@/features/ArticleRating/testing\'',
+			errors: [],
+			options: [
+				{
+					alias: '@',
+					testFilesPatterns: ['**/*.test.*', '**/*.test.ts', '**/StoreDecorator.tsx']
+				}
+			]
+		},
+		{
+			filename: 'C:\\advanced-frontend\\src\\entities\\StoreDecorator.tsx',
+			code: 'import { useGetArticleRating, useRateArticle } from \'@/entities/Article/testing\'',
+			errors: [],
+			options: [
+				{
+					alias: '@',
+					testFilesPatterns: ['**/*.test.*', '**/*.test.ts', '**/StoreDecorator.tsx']
+				}
+			]
 		}
 	],
 
 	invalid: [
 		{
-			filename: 'C:\\ulbi-advanced-frontend\\src\\features\\ArticleRating\\ui\\ArticleRating.tsx',
+			filename: 'C:\\advanced-frontend\\src\\features\\ArticleRating\\ui\\ArticleRating.tsx',
 			code: 'import { useGetArticleRating, useRateArticle } from \'entities/ArticleRating/api/articleRatingApi\'',
 			errors: [{message: 'Абсолютный импорт должен быть только через public api!'}],
 		},
 		{
-			filename: 'C:\\ulbi-advanced-frontend\\src\\features\\ArticleRating\\ui\\ArticleRating.tsx',
+			filename: 'C:\\advanced-frontend\\src\\features\\ArticleRating\\ui\\ArticleRating.tsx',
 			code: 'import { useGetArticleRating, useRateArticle } from \'@/entities/ArticleRating/api/articleRatingApi\'',
 			errors: [{message: 'Абсолютный импорт должен быть только через public api!'}],
 			options: [
 				{
 					alias: '@'
+				}
+			]
+		},
+		{
+			filename: 'C:\\advanced-frontend\\src\\entities\\StoreDecorator.tsx',
+			code: 'import { useGetArticleRating, useRateArticle } from \'@/entities/Article/testing/file.ts\'',
+			errors: [{message: 'Абсолютный импорт должен быть только через public api!'}],
+			options: [
+				{
+					alias: '@',
+					testFilesPatterns: ['**/*.test.*', '**/*.stories.*', 'StoreDecorator.tsx']
+				}
+			]
+		},
+		{
+			filename: 'C:\\advanced-frontend\\src\\entities\\forbidden.ts',
+			code: 'import { useGetArticleRating, useRateArticle } from \'@/entities/Article/testing\'',
+			errors: [{message: 'Данные для тестов необходимо импортировать из publicApi/testing.ts'}],
+			options: [
+				{
+					alias: '@',
+					testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
 				}
 			]
 		}
