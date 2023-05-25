@@ -1,16 +1,36 @@
-# restricts imports from higer layers to lower layers (`layers-import-order`)
-
-Please describe the origin of the rule here.
+# Restrict imports from higher layers to lower layers (`layers-import-order`)
 
 ## Rule Details
 
-This rule aims to...
+This rule aims to force make imports only from lower layers.
+
+### Order of imports:
+shared* => entities* => features => widgets => pages => app
+
+(*) - can be imported in same layer
+
+```
+    src/
+        ...
+        entities/
+            EntitieName
+                ui/
+                    EntitieName.tsx  <-- used for imports inside module!
+                model/
+                index.ts  <-- used for imports outside this module!
+        features/
+            ...     
+
+```
 
 Examples of **incorrect** code for this rule:
 
+
 ```js
 
-// fill me in
+//filename: 'C:\\advanced-frontend\\src\\entities\\ArticleRating\\ui\\ArticleRating.tsx',
+import { ArticleRating } from '@/features/Article'
+//  in this example import made from higher layer
 
 ```
 
@@ -18,18 +38,56 @@ Examples of **correct** code for this rule:
 
 ```js
 
-// fill me in
+//filename: 'C:\\advanced-frontend\\src\\features\\ArticleRating\\ui\\ArticleRating.tsx',	
+import { useGetArticleRating, useRateArticle } from 'entities/Article'
+//  in this example import made from lower level layer
+
 
 ```
 
 ### Options
 
-If there are any options, describe them here. Otherwise, delete this section.
+If you use some alias in your project include it in options
+#### With alias
+
+```js
+//  .eslintrc.js
+module.exports = {
+	// ... other eslint settings ...
+	rules: {
+		// ... other rules ...
+		'fsd-architecture-checker/import-path-checker': [
+			'error', 
+            {
+				alias: '@', //optional
+                ignoreImportPatterns: ['**/StoreProvider'] //optional
+			}
+        ]
+	}
+}
+    
+```
+
+#### Without alias
+
+```js
+//  .eslintrc.js
+module.exports = {
+	// ... other eslint settings ...
+	rules: {
+		// ... other rules ...
+		'fsd-architecture-checker/import-path-checker': 'error'
+	}
+}
+    
+```
 
 ## When Not To Use It
 
-Give a short description of when it would be appropriate to turn off this rule.
+If you don't use Feature-sliced Design on project - this plugin is not advised.
 
 ## Further Reading
 
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+Feature-Sliced Design
+Architectural methodology for frontend projects
+https://feature-sliced.design/

@@ -1,4 +1,4 @@
-# eslint-plugin-fsd-import-checker
+# eslint-plugin-fsd-architecture-checker
 
 checks import paths according to FSD architecture
 GitHub: https://github.com/viacheslavorlov/eslint-plugin-fsd-architecture-checker
@@ -11,20 +11,20 @@ You'll first need to install [ESLint](https://eslint.org/):
 npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-fsd-import-checker`:
+Next, install `eslint-plugin-fsd-architecture-checker`:
 
 ```sh
-npm install eslint-plugin-fsd-import-checker --save-dev
+npm install eslint-plugin-fsd-architecture-checker --save-dev
 ```
 
 ## Usage
 
-Add `fsd-import-checker` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `fsd-architecture-checker` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {
     "plugins": [
-        "fsd-import-checker"
+        "fsd-architecture-checker"
     ]
 }
 ```
@@ -35,7 +35,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "fsd-import-checker/rule-name": 2
+        "fsd-architecture-checker/rule-name": 2
     }
 }
 ```
