@@ -46,10 +46,11 @@ Then configure the rules you want to use under the rules section.
 If you have trouble with opening this rules documentation visit 
 GitHub: https://github.com/viacheslavorlov/eslint-plugin-fsd-architecture-checker
 
-| Name                                                     | Description                                               |
-| :------------------------------------------------------- | :-------------------------------------------------------- |
-| [import-path-checker](docs/rules/import-path-checker.md) | checks if modules imported according to FSD rules         |
-| [public-api-import](docs/rules/public-api-import.md)     | imports from other modules should be only from public api |
+| Name                                                             | Description                                               |
+|:-----------------------------------------------------------------|:----------------------------------------------------------|
+| [import-path-checker](docs/rules/import-path-checker.md)         | checks if modules imported according to FSD rules         |
+| [public-api-import](docs/rules/public-api-import.md)             | imports from other modules should be only from public api |
+| [layers-import-order.md](docs/rules/layers-import-order.md)<br/> | force make imports only from lower layers                 |
 
 <!-- end auto-generated rules list -->
 
