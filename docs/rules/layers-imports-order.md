@@ -1,4 +1,4 @@
-# Restrict imports from higher layers to lower layers (`layers-import-order`)
+# Restrict imports from higher layers to lower layers (`layers-imports-order`)
 
 ## Rule Details
 
