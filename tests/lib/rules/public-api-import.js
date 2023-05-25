@@ -77,6 +77,17 @@ ruleTester.run('public-api-import', rule, {
 			]
 		},
 		{
+			filename: 'C:\\advanced-frontend\\src\\features\\Story.test.tsx',
+			code: 'import { useGetArticleRating, useRateArticle } from \'@/entities/Article/testing/file.ts\'',
+			errors: [{message: 'Абсолютный импорт должен быть только через public api!'}],
+			options: [
+				{
+					alias: '@',
+					testFilesPatterns: ['**/*.test.*', '**/*.stories.*', 'StoreDecorator.tsx']
+				}
+			]
+		},
+		{
 			filename: 'C:\\advanced-frontend\\src\\entities\\StoreDecorator.tsx',
 			code: 'import { useGetArticleRating, useRateArticle } from \'@/entities/Article/testing/file.ts\'',
 			errors: [{message: 'Абсолютный импорт должен быть только через public api!'}],
