@@ -1,4 +1,4 @@
-# Restrict imports from higher layers to lower layers (`layers-import-order`)
+# Restrict imports from higher layers to lower layers (`layers-imports-order`)
 
 ## Rule Details
 
@@ -56,7 +56,7 @@ module.exports = {
 	// ... other eslint settings ...
 	rules: {
 		// ... other rules ...
-		'fsd-architecture-checker/import-path-checker': [
+		'fsd-architecture-checker/layers-imports-order': [
 			'error', 
             {
 				alias: '@', //optional
@@ -76,7 +76,7 @@ module.exports = {
 	// ... other eslint settings ...
 	rules: {
 		// ... other rules ...
-		'fsd-architecture-checker/import-path-checker': 'error'
+		'fsd-architecture-checker/layers-imports-order': 'error'
 	}
 }
     

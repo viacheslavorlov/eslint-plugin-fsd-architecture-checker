@@ -6,6 +6,7 @@
 ## Rule Details
 
 This rule aims to force use public api to make imports in other modules.
+### AUTOFIX is added to plugin (for correct plugin work you need to enforce FSD architecture)
 
 ```
     src/
